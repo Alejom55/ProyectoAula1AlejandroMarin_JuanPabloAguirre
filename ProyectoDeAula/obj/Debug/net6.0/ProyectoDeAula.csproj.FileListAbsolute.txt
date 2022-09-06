@@ -1,0 +1,15 @@
+C:\Users\miste\source\repos\ProyectoDeAula\ProyectoDeAula\bin\Debug\net6.0\ProyectoDeAula.exe
+C:\Users\miste\source\repos\ProyectoDeAula\ProyectoDeAula\bin\Debug\net6.0\ProyectoDeAula.deps.json
+C:\Users\miste\source\repos\ProyectoDeAula\ProyectoDeAula\bin\Debug\net6.0\ProyectoDeAula.runtimeconfig.json
+C:\Users\miste\source\repos\ProyectoDeAula\ProyectoDeAula\bin\Debug\net6.0\ProyectoDeAula.dll
+C:\Users\miste\source\repos\ProyectoDeAula\ProyectoDeAula\bin\Debug\net6.0\ProyectoDeAula.pdb
+C:\Users\miste\source\repos\ProyectoDeAula\ProyectoDeAula\obj\Debug\net6.0\ProyectoDeAula.csproj.AssemblyReference.cache
+C:\Users\miste\source\repos\ProyectoDeAula\ProyectoDeAula\obj\Debug\net6.0\ProyectoDeAula.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\miste\source\repos\ProyectoDeAula\ProyectoDeAula\obj\Debug\net6.0\ProyectoDeAula.AssemblyInfoInputs.cache
+C:\Users\miste\source\repos\ProyectoDeAula\ProyectoDeAula\obj\Debug\net6.0\ProyectoDeAula.AssemblyInfo.cs
+C:\Users\miste\source\repos\ProyectoDeAula\ProyectoDeAula\obj\Debug\net6.0\ProyectoDeAula.csproj.CoreCompileInputs.cache
+C:\Users\miste\source\repos\ProyectoDeAula\ProyectoDeAula\obj\Debug\net6.0\ProyectoDeAula.dll
+C:\Users\miste\source\repos\ProyectoDeAula\ProyectoDeAula\obj\Debug\net6.0\refint\ProyectoDeAula.dll
+C:\Users\miste\source\repos\ProyectoDeAula\ProyectoDeAula\obj\Debug\net6.0\ProyectoDeAula.pdb
+C:\Users\miste\source\repos\ProyectoDeAula\ProyectoDeAula\obj\Debug\net6.0\ProyectoDeAula.genruntimeconfig.cache
+C:\Users\miste\source\repos\ProyectoDeAula\ProyectoDeAula\obj\Debug\net6.0\ref\ProyectoDeAula.dll
