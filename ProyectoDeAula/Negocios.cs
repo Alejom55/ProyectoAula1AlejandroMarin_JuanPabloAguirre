@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 namespace ProyectoDeAula
 {
     class Negocios
-    {
+    {   
         private int codigo;
         private double valorInversion, totalIngresos_3Annos;
-        private string nombreIdeaNegocio = "", impactoSocial_Economico, herramientas4RI;
+        private string nombreIdeaNegocio = "", impactoSocial_Economico = "", herramientas4RI = "";
         private List<string> departamentos = new List<string>
         {
             "Amazonas", "Antioquia", "Arauca", "Atlántico",
@@ -21,6 +21,8 @@ namespace ProyectoDeAula
             "Risaralda", "San Andrés y Providencia", "Santander", "Sucre", "Tolima",
             "Valle del Cauca", "Vaupés", "Vichada"
         };
+        private List<Negocios> listaNegocios = new List<Negocios>();
+        private List<int> codigoNegocios = new List<int>();
 
         public Negocios(int codigo, double valorInversion, double totalIngresos_3Annos, string nombreIdeaNegocio, string impactoSocial_Economico, string herramientas4RI)
         {
@@ -39,6 +41,28 @@ namespace ProyectoDeAula
         public string ImpactoSocial_Economico { get => impactoSocial_Economico; set => impactoSocial_Economico = value; }
         public string Herramientas4RI { get => herramientas4RI; set => herramientas4RI = value; }
         public List<string> Departamentos { get => departamentos; set => departamentos = value; }
+        internal List<Negocios> ListaNegocios { get => listaNegocios; set => listaNegocios = value; }
+        internal List<int> CodigoNegocios { get => codigoNegocios; set => codigoNegocios = value; }
+
+        public void AgregarIdeaDeNegocios(string nombre, string imapcto, double valorInversion, double totalIngresos_3Annos)
+        {
+
+            bool aux = false;
+            do
+            {
+                Codigo = new Random().Next(0, 100);
+                if (!CodigoNegocios.Contains(Codigo))
+                {
+                    CodigoNegocios.Add(Codigo);
+                    aux = true;
+                }
+            }
+            while (aux is false);
+
+
+
+        }
     }
+
 
 }
