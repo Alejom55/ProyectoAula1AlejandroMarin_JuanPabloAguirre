@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProyectoDeAula
 {
-    class Negocios
+    public class Negocios
     {   
         private int codigo;
         private double valorInversion, totalIngresos_3Annos;
@@ -22,9 +22,14 @@ namespace ProyectoDeAula
             "Valle del Cauca", "Vaupés", "Vichada"
         };
         private List<Negocios> listaNegocios = new List<Negocios>();
-        private List<int> codigoNegocios = new List<int>();
+        private List<int> listaCodigoNegocios = new List<int>();
+        private List<string> listaHerramientas4RI = new List<string>
+        {
+            "Inteligencia artificial", "Cloud computing",
+            "Biometria", "Firma digital"
+        };
 
-        public Negocios(int codigo, double valorInversion, double totalIngresos_3Annos, string nombreIdeaNegocio, string impactoSocial_Economico, string herramientas4RI)
+        public Negocios(int codigo, double valorInversion, double totalIngresos_3Annos, string nombreIdeaNegocio, string impactoSocial_Economico)
         {
             this.Codigo = codigo;
             this.ValorInversion = valorInversion;
@@ -32,6 +37,7 @@ namespace ProyectoDeAula
             this.NombreIdeaNegocio = nombreIdeaNegocio;
             this.ImpactoSocial_Economico = impactoSocial_Economico;
             this.Herramientas4RI = herramientas4RI;
+            List<IntegrantesNegocio> integrantes = new List<IntegrantesNegocio>();
         }
 
         public int Codigo { get => codigo; set => codigo = value; }
@@ -41,8 +47,9 @@ namespace ProyectoDeAula
         public string ImpactoSocial_Economico { get => impactoSocial_Economico; set => impactoSocial_Economico = value; }
         public string Herramientas4RI { get => herramientas4RI; set => herramientas4RI = value; }
         public List<string> Departamentos { get => departamentos; set => departamentos = value; }
+        public List<string> ListaHerramientas4RI { get => listaHerramientas4RI; set => listaHerramientas4RI = value; }
         internal List<Negocios> ListaNegocios { get => listaNegocios; set => listaNegocios = value; }
-        internal List<int> CodigoNegocios { get => codigoNegocios; set => codigoNegocios = value; }
+        internal List<int> ListaCodigoNegocios { get => ListaCodigoNegocios; set => listaCodigoNegocios = value; }
 
         public void AgregarIdeaDeNegocios(string nombre, string imapcto, double valorInversion, double totalIngresos_3Annos)
         {
@@ -50,14 +57,16 @@ namespace ProyectoDeAula
             bool aux = false;
             do
             {
-                Codigo = new Random().Next(0, 100);
-                if (!CodigoNegocios.Contains(Codigo))
+                Codigo = new Random().Next(1000, 10000);
+                if (!ListaCodigoNegocios.Contains(Codigo))
                 {
-                    CodigoNegocios.Add(Codigo);
+                    listaCodigoNegocios.Add(Codigo);
                     aux = true;
                 }
             }
             while (aux is false);
+            ListaNegocios.Add(new Negocios(Codigo, valorInversion, totalIngresos_3Annos, nombre, imapcto));
+            
 
 
 
