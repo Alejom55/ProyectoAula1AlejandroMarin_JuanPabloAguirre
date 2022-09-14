@@ -9,8 +9,10 @@ namespace repeat_string_x_times
         static void Main(string[] args)
         {
             List<int> listaCodigoNegocios = new List<int>();
+            List<IntegrantesNegocio> listaIntegrantesNegocios = new List<IntegrantesNegocio>();
+            List<Negocios> listaNegocios = new List<Negocios>();
+
             string separador = new string('*', 45);
-            string opciones_interfaz = new string("");
             Console.WriteLine(separador);
             Console.WriteLine("BIENVENIDO A EMPRENDIMIENTOS CON HERRAMIENTAS \n DE LA CUARTA REVOLUCIÓN INDUSTRIAL (4RI)");
             Console.WriteLine(separador);
@@ -25,7 +27,7 @@ namespace repeat_string_x_times
                     aux = true;
                     Console.WriteLine("¿Cuantos negocios desea agregar?");
                     int respCantidadNegocios = Convert.ToInt32(Console.ReadLine());
-                    for(int cantNegocios = 1; cantNegocios < respCantidadNegocios; cantNegocios++)
+                    for(int cantNegocios = 1; cantNegocios <= respCantidadNegocios; cantNegocios++)
                     {
                         bool aux2 = false;
                         int codigo;
@@ -57,7 +59,8 @@ namespace repeat_string_x_times
 
                         Console.WriteLine("Ingrese la cantidad de integrantes del negocio");
                         int respCantidadIntegrantes = Convert.ToInt32(Console.ReadLine());
-                        for(int cantIntegrantes = 1; cantIntegrantes < respCantidadIntegrantes; cantIntegrantes++)
+
+                        for(int cantIntegrantes = 1; cantIntegrantes <= respCantidadIntegrantes; cantIntegrantes++)
                         {
                             Console.WriteLine("Ingrese el id del integrate #" + cantIntegrantes);
                             string respIdIntegrante = Convert.ToString(Console.ReadLine());
@@ -75,6 +78,14 @@ namespace repeat_string_x_times
                             string respEmailIntegrante = Convert.ToString(Console.ReadLine());
 
 
+                            IntegrantesNegocio integrante = new IntegrantesNegocio(
+                                respIdIntegrante, 
+                                respNombreIntegrante,
+                                respApellidosIntegrante,
+                                respRolIntegrante, 
+                                respEmailIntegrante);
+
+                            listaIntegrantesNegocios.Add(integrante);
                         }
                         
 
@@ -94,6 +105,10 @@ namespace repeat_string_x_times
 
 
             } while (aux is false);
+            Console.WriteLine(listaIntegrantesNegocios[0]);
+            Console.WriteLine(listaIntegrantesNegocios[1]);
+            Console.WriteLine(listaIntegrantesNegocios.Count);
+            listaIntegrantesNegocios.ToList().ForEach(Console.WriteLine);
         }
     }
 }

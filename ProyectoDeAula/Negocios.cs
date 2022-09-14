@@ -13,9 +13,9 @@ namespace ProyectoDeAula
         private string nombreIdeaNegocio = "", impactoSocial_Economico = "", herramientas4RI = "";
         private List<string> departamentos = new List<string>
         {
-            "Amazonas", "Antioquia", "Arauca", "Atlántico",
-            "Bolívar", "Boyacá", "Caldas", "Caquetá", "Casanare",
-            "Cauca", "Cesar", "Chocó", "Córdoba", " Cundinamarca",
+            "1.Amazonas", "2.Antioquia", "3.Arauca", "4.Atlántico",
+            "5.Bolívar", "6.Boyacá", "7.Caldas", "8.Caquetá", "9.Casanare",
+            "10.Cauca", "11.Cesar", "Chocó", "Córdoba", " Cundinamarca",
             "Guainía", "Guaviare", "Huila", "La Guajira", "Magdalena",
             "Meta", "Nariño", "Norte de Santander", "Putumayo", "Quindío",
             "Risaralda", "San Andrés y Providencia", "Santander", "Sucre", "Tolima",
@@ -50,27 +50,6 @@ namespace ProyectoDeAula
         public List<string> ListaHerramientas4RI { get => listaHerramientas4RI; set => listaHerramientas4RI = value; }
         internal List<Negocios> ListaNegocios { get => listaNegocios; set => listaNegocios = value; }
         internal List<int> ListaCodigoNegocios { get => ListaCodigoNegocios; set => listaCodigoNegocios = value; }
-
-        public void AgregarIdeaDeNegocios(string nombre, string imapcto, double valorInversion, double totalIngresos_3Annos)
-        {
-
-            bool aux = false;
-            do
-            {
-                Codigo = new Random().Next(1000, 10000);
-                if (!ListaCodigoNegocios.Contains(Codigo))
-                {
-                    listaCodigoNegocios.Add(Codigo);
-                    aux = true;
-                }
-            }
-            while (aux is false);
-            ListaNegocios.Add(new Negocios(Codigo, valorInversion, totalIngresos_3Annos, nombre, imapcto));
-            
-
-
-
-        }
     }
 
 
