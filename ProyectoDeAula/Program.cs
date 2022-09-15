@@ -1,4 +1,4 @@
-﻿using ProyectoDeAula;
+using ProyectoDeAula;
 using System;
 
 namespace repeat_string_x_times
@@ -11,6 +11,16 @@ namespace repeat_string_x_times
             List<int> listaCodigoNegocios = new List<int>();
             List<IntegrantesNegocio> listaIntegrantesNegocios = new List<IntegrantesNegocio>();
             List<Negocios> listaNegocios = new List<Negocios>();
+            List<string> departamentos = new List<string>
+            {
+                "Amazonas", "Antioquia", "Arauca", "Atlántico",
+                "Bolívar", "Boyacá", "Caldas", "Caquetá", "Casanare",
+                "Cauca", "Cesar", "Chocó", "Córdoba", " Cundinamarca",
+                "Guainía", "Guaviare", "Huila", "La Guajira", "Magdalena",
+                "Meta", "Nariño", "Norte de Santander", "Putumayo", "Quindío",
+                "Risaralda", "San Andrés y Providencia", "Santander", "Sucre", "Tolima",
+                "Valle del Cauca", "Vaupés", "Vichada"
+            };
 
             string separador = new string('*', 45);
             Console.WriteLine(separador);
@@ -51,6 +61,32 @@ namespace repeat_string_x_times
                         Console.WriteLine("¿Que impacto social o económico genera?");
                         string respImpacto = Convert.ToString(Console.ReadLine() );
 
+                        Console.WriteLine("¿Cuantos departamentos abarca el negocio?");
+                        int respCantidadDepartamentos = Convert.ToInt32(Console.ReadLine());
+
+                        Console.WriteLine(" ");
+
+                        //Se crea una copia de la lista para que no afecte a la lista principal
+
+                        List<string> copiaLista = new List<string>(departamentos);
+                        for (int cantDepartamentos = 1; cantDepartamentos <= respCantidadDepartamentos; cantDepartamentos++)
+                        {
+                            for (int contador = 0; contador < copiaLista.Count; contador++)
+                            {
+
+                                Console.WriteLine((contador) + ". " + copiaLista[contador]);
+
+                            }
+                            Console.WriteLine("Ingrese el numero del departamento");
+                            int respNumeroDépartamento = Convert.ToInt32(Console.ReadLine());
+
+                            Console.WriteLine("Agregaste " + copiaLista[respNumeroDépartamento]);
+                            copiaLista.RemoveAt(respNumeroDépartamento);
+                            
+
+                        }
+                        Console.WriteLine(" ");
+
                         Console.WriteLine("Ingrese el valor de inversion");
                         double respValorInversion = Convert.ToDouble(Console.ReadLine());
 
@@ -86,7 +122,8 @@ namespace repeat_string_x_times
                                 respEmailIntegrante);
 
                             listaIntegrantesNegocios.Add(integrante);
-                            
+
+
                             Negocios negocio = new Negocios(
                                 codigo,
                                 respValorInversion,
@@ -104,13 +141,10 @@ namespace repeat_string_x_times
                             Console.WriteLine(" ");
 
 
-                            for(int contador = 0; contador < departamentos.Count; contador++)
-                            {
-                
-                                Console.WriteLine((contador+1) + ". " + departamentos[contador]);
-                                
-                            }
+                            
                         }
+                        Console.WriteLine("Herramientas 4RI que utiliza");
+
                         
 
 
@@ -133,16 +167,6 @@ namespace repeat_string_x_times
             Console.WriteLine(listaIntegrantesNegocios[1]);
             Console.WriteLine(listaIntegrantesNegocios.Count);
             listaIntegrantesNegocios.ToList().ForEach(Console.WriteLine);
-            
-            
         }
     }
 }
-
-
-
-
-
-
-
-
