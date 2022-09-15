@@ -86,6 +86,30 @@ namespace repeat_string_x_times
                                 respEmailIntegrante);
 
                             listaIntegrantesNegocios.Add(integrante);
+                            
+                            Negocios negocio = new Negocios(
+                                codigo,
+                                respValorInversion,
+                                respTotalIngresos,
+                                respNombreNegocio,
+                                respImpacto
+                                );
+
+                            listaNegocios.Add(negocio);
+
+                            Console.WriteLine(" ");
+                            Console.WriteLine(" ");
+                            Console.WriteLine("--------------------------------------------------------------------------------------");
+                            Console.WriteLine(" ");
+                            Console.WriteLine(" ");
+
+
+                            for(int contador = 0; contador < departamentos.Count; contador++)
+                            {
+                
+                                Console.WriteLine((contador+1) + ". " + departamentos[contador]);
+                                
+                            }
                         }
                         
 
@@ -109,6 +133,8 @@ namespace repeat_string_x_times
             Console.WriteLine(listaIntegrantesNegocios[1]);
             Console.WriteLine(listaIntegrantesNegocios.Count);
             listaIntegrantesNegocios.ToList().ForEach(Console.WriteLine);
+            
+            
         }
     }
 }
