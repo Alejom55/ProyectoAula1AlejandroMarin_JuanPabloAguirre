@@ -1,4 +1,4 @@
-﻿using ProyectoDeAula;
+using ProyectoDeAula;
 using System;
 
 namespace repeat_string_x_times
@@ -15,12 +15,17 @@ namespace repeat_string_x_times
             {
                 "Amazonas", "Antioquia", "Arauca", "Atlántico",
                 "Bolívar", "Boyacá", "Caldas", "Caquetá", "Casanare",
+<<<<<<< HEAD
                 "Cauca", "Cesar", "Chocó", "Córdoba", "Cundinamarca",
+=======
+                "Cauca", "Cesar", "Chocó", "Córdoba", " Cundinamarca",
+>>>>>>> ecb2242c464f9f5031ada73b47574a1a526c56fe
                 "Guainía", "Guaviare", "Huila", "La Guajira", "Magdalena",
                 "Meta", "Nariño", "Norte de Santander", "Putumayo", "Quindío",
                 "Risaralda", "San Andrés y Providencia", "Santander", "Sucre", "Tolima",
                 "Valle del Cauca", "Vaupés", "Vichada"
             };
+<<<<<<< HEAD
 
             //Ayuda hace que no se cierre automaticamente la consola
             void ayuda()
@@ -28,6 +33,8 @@ namespace repeat_string_x_times
                 string ayuda = Convert.ToString(Console.ReadLine());
             }
             
+=======
+>>>>>>> ecb2242c464f9f5031ada73b47574a1a526c56fe
 
             string separador = new string('*', 45);
             Console.WriteLine(separador);
@@ -88,9 +95,39 @@ namespace repeat_string_x_times
                         Console.WriteLine(" ");
 
                         Console.WriteLine("¿Cuantos departamentos abarca el negocio?");
+<<<<<<< HEAD
                         Console.WriteLine(" ");
                         int respCantidadDepartamentos = Convert.ToInt32(Console.ReadLine());
                         Console.WriteLine(" ");
+=======
+                        int respCantidadDepartamentos = Convert.ToInt32(Console.ReadLine());
+
+                        Console.WriteLine(" ");
+
+                        //Se crea una copia de la lista para que no afecte a la lista principal
+
+                        List<string> copiaLista = new List<string>(departamentos);
+                        for (int cantDepartamentos = 1; cantDepartamentos <= respCantidadDepartamentos; cantDepartamentos++)
+                        {
+                            for (int contador = 0; contador < copiaLista.Count; contador++)
+                            {
+
+                                Console.WriteLine((contador) + ". " + copiaLista[contador]);
+
+                            }
+                            Console.WriteLine("Ingrese el numero del departamento");
+                            int respNumeroDépartamento = Convert.ToInt32(Console.ReadLine());
+
+                            Console.WriteLine("Agregaste " + copiaLista[respNumeroDépartamento]);
+                            copiaLista.RemoveAt(respNumeroDépartamento);
+                            
+
+                        }
+                        Console.WriteLine(" ");
+
+                        Console.WriteLine("Ingrese el valor de inversion");
+                        double respValorInversion = Convert.ToDouble(Console.ReadLine());
+>>>>>>> ecb2242c464f9f5031ada73b47574a1a526c56fe
 
                         //Se crea una copia de la lista para que no afecte a la lista principal
 
@@ -321,6 +358,7 @@ namespace repeat_string_x_times
 
                             listaIntegrantesNegocios.Add(integrante);
 
+<<<<<<< HEAD
                             Console.WriteLine(separador);
                             
                         }
@@ -331,6 +369,30 @@ namespace repeat_string_x_times
                             respNombreNegocio,
                             respImpacto
                             );
+=======
+
+                            Negocios negocio = new Negocios(
+                                codigo,
+                                respValorInversion,
+                                respTotalIngresos,
+                                respNombreNegocio,
+                                respImpacto
+                                );
+
+                            listaNegocios.Add(negocio);
+
+                            Console.WriteLine(" ");
+                            Console.WriteLine(" ");
+                            Console.WriteLine("--------------------------------------------------------------------------------------");
+                            Console.WriteLine(" ");
+                            Console.WriteLine(" ");
+
+
+                            
+                        }
+                        Console.WriteLine("Herramientas 4RI que utiliza");
+
+>>>>>>> ecb2242c464f9f5031ada73b47574a1a526c56fe
                         
                         negocio.ContDep = respCantidadDepartamentos;
                         negocio.NegocioDepartamentos = departamentosParaElObjeto;
