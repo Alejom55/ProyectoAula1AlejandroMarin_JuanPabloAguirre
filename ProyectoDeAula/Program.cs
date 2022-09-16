@@ -450,9 +450,9 @@ namespace repeat_string_x_times
                         }
 			        }
 
-                    Console.WriteLine("1ro:" + nombreRent1);
-                    Console.WriteLine("2do:" + nombreRent2);
-                    Console.WriteLine("3ro:" + nombreRent3);
+                    Console.WriteLine("1ro: " + nombreRent1);
+                    Console.WriteLine("2do: " + nombreRent2);
+                    Console.WriteLine("3ro: " + nombreRent3);
 
                     Console.ForegroundColor = ConsoleColor.Magenta;
                     Console.WriteLine(separador);
@@ -512,7 +512,7 @@ namespace repeat_string_x_times
                     Console.WriteLine("Sus integrantes son:" );
                     for(int quieroDormir = 0;quieroDormir < listaNegocios[otroIndexAyuda].Integrantes.Count; quieroDormir++)
                     {
-                        Console.WriteLine("- " + listaNegocios[otroIndexAyuda].Integrantes[quieroDormir].Nombre + listaNegocios[otroIndexAyuda].Integrantes[quieroDormir].Apellidos);
+                        Console.WriteLine("- " + listaNegocios[otroIndexAyuda].Integrantes[quieroDormir].Nombre +" "+listaNegocios[otroIndexAyuda].Integrantes[quieroDormir].Apellidos);
                     }
 
                     Console.ForegroundColor = ConsoleColor.Magenta;
