@@ -567,8 +567,8 @@
                                 string nombreRent1 = " ";
                                 string nombreRent2 = " ";
                                 string nombreRent3 = " ";
-                                double rent1 = listaNegocios[0].Rentabilidad;
-                                double rent2 = listaNegocios[0].Rentabilidad;
+                                double rent1 = 0;
+                                double rent2 = 0;
 
 
 
@@ -678,7 +678,7 @@
                                     }
 
                                 }
-                                Console.WriteLine("Los mayores negocios con herramientas 4RI son: ");
+                                Console.WriteLine("El mayor negocio con herramientas 4RI es: ");
                                 
                                 Console.WriteLine("Nombre negocio: " + listaNegocios[otroIndexAyuda].NombreIdeaNegocio);
 
