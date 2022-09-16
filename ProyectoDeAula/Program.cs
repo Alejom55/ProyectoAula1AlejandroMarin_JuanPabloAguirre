@@ -121,7 +121,6 @@ namespace repeat_string_x_times
                             
 
                         }
-                        Console.WriteLine(" ");
                         bool modificar = true;
                         double respValorInversion;
                         double respTotalIngresos;
@@ -369,161 +368,354 @@ namespace repeat_string_x_times
                         listaNegocios.Add(negocio);
                         
                     }
-
-                    int indiceLista = 0;
-
-                    for(int max = 0; max == listaNegocios.Count; max++)
+                    
+                    
+                    bool auxFinal = false;
+                    do
                     {
-                        if (listaNegocios[max].TotalIngresos_3Annos >= maxIngresos && listaNegocios[max].ContDep >= maxDepartamentos)
+                        Console.ForegroundColor = ConsoleColor.Magenta;
+                        Console.WriteLine(separador);
+                        Console.ResetColor();
+
+                        Console.ForegroundColor = ConsoleColor.Green;
+                        Console.WriteLine("¿Que desea hacer?");
+                        Console.ResetColor();
+                        Console.WriteLine("");
+                        Console.WriteLine("1. Editar integrantes de un negocio");
+                        Console.WriteLine("");
+                        Console.WriteLine("2. Mostrar la informacion de la idea de negocio que impacte más departamentos\ny tenga el mayor total de ingresos en los primeros 3 años");
+                        Console.WriteLine("");
+                        Console.WriteLine("3. Mostrar el nombre de las 3 ideas de negocio que generen más rentabilida");
+                        Console.WriteLine("");
+                        Console.WriteLine("4. Nombre de los emprendimientos impacten más de 3 departamentos");
+                        Console.WriteLine("");
+                        Console.WriteLine("5. Suma total de la inversión que se debe hacer en todas las ideas de negocio");
+                        Console.WriteLine("");
+                        Console.WriteLine("6. Suma total de ingresos de todas las ideas de negocio");
+                        Console.WriteLine("");
+                        Console.WriteLine("7. Nombre de la idea de negocio con los integrantes del equipo que tenga la mayor cantidad de herramientas 4RI en su emprendimiento");
+                        Console.WriteLine("");
+                        Console.WriteLine("8. Cantidad de ideas de negocio que tienen Inteligencia Artificia");
+                        Console.WriteLine("");
+                        Console.WriteLine("Ingrese culquier otro numero para finalizar el programa");
+
+                        int respFinal = Convert.ToInt32(Console.ReadLine());
+                        int auxIntegrante = 0;
+                        if (respFinal == 1)
                         {
-                            maxIngresos = listaNegocios[max].TotalIngresos_3Annos;
-                            maxDepartamentos = listaNegocios[max].ContDep;
-                            indiceLista = max;
+                            Console.ForegroundColor = ConsoleColor.Magenta;
+                            Console.WriteLine(separador);
+                            Console.ResetColor();
+
+                            Console.WriteLine("Negocios:");
+                            for (int auxOtroMas = 0; auxOtroMas < listaNegocios.Count; auxOtroMas++)
+                            {
+                                Console.WriteLine("- Codigo: " + listaNegocios[auxOtroMas].Codigo + " Nombre: " + listaNegocios[auxOtroMas].NombreIdeaNegocio);
+                                
+                            }
+                            Console.WriteLine("");
+                            Console.WriteLine("Ingrese el codigo del negocio");
+                            Console.WriteLine("");
+                            int respFinalCodigo = Convert.ToInt32(Console.ReadLine());
+
+                            for(int buscarCodigo = 0; buscarCodigo < listaNegocios.Count; buscarCodigo++)
+                            {
+                                if(listaNegocios[buscarCodigo].Codigo == respFinalCodigo)
+                                {
+                                    auxIntegrante = buscarCodigo;
+                                }
+                            }
+                            
+                            Console.WriteLine("1. Agregar Integrante");
+                            Console.WriteLine("");
+                            Console.WriteLine("2. Eliminar integrante");
+                            int aux2Integrante = Convert.ToInt32(Console.ReadLine());
+
+                            if (aux2Integrante == 1)
+                            {
+                                Console.WriteLine("Ingrese la cantidad que desea agregar");
+                                Console.WriteLine(" ");
+                                int respCantidadIntegrantes = Convert.ToInt32(Console.ReadLine());
+                                Console.WriteLine(" ");
+
+                                for (int cantIntegrantes = 1; cantIntegrantes <= respCantidadIntegrantes; cantIntegrantes++)
+                                {   
+                                    Console.WriteLine("Ingrese el id del integrate " + cantIntegrantes);
+                                    Console.WriteLine(" ");
+                                    string respIdIntegrante = Convert.ToString(Console.ReadLine());
+                                    Console.WriteLine(" ");
+
+                                    Console.WriteLine("Ingrese el nombre del integrante " + cantIntegrantes);
+                                    Console.WriteLine(" ");
+                                    string respNombreIntegrante = Convert.ToString(Console.ReadLine());
+                                    Console.WriteLine(" ");
+
+                                    Console.WriteLine("Ingrese los apellidos del integrante " + cantIntegrantes);
+                                    Console.WriteLine(" ");
+                                    string respApellidosIntegrante = Convert.ToString(Console.ReadLine());
+                                    Console.WriteLine(" ");
+
+                                    Console.WriteLine("Ingrese el rol dentro del emprendimiento del integrante " + cantIntegrantes);
+                                    Console.WriteLine(" ");
+                                    string respRolIntegrante = Convert.ToString(Console.ReadLine());
+                                    Console.WriteLine(" ");
+
+                                    Console.WriteLine("Ingrese el email del integrante " + cantIntegrantes);
+                                    Console.WriteLine(" ");
+                                    string respEmailIntegrante = Convert.ToString(Console.ReadLine());
+                                    Console.WriteLine(" ");
+
+
+                                    IntegrantesNegocio integrante = new IntegrantesNegocio(
+                                        respIdIntegrante,
+                                        respNombreIntegrante,
+                                        respApellidosIntegrante,
+                                        respRolIntegrante,
+                                        respEmailIntegrante);
+
+                                    listaNegocios[auxIntegrante].Integrantes.Add(integrante);
+
+                                    Console.ForegroundColor = ConsoleColor.Green;
+                                    Console.WriteLine("Se ha añadido satisfactoriamente");
+                                    Console.ResetColor();
+                                }
+                            }
+                            else if (aux2Integrante == 2)
+                            {
+         
+                                Console.WriteLine("Integrantes");
+                                for (int auxID2 = 0; auxID2 < listaNegocios[auxIntegrante].Integrantes.Count; auxID2++)
+                                {
+                                    Console.WriteLine("- Id: " + listaNegocios[auxIntegrante].Integrantes[auxID2].Id + " Nombre: "+listaNegocios[auxIntegrante].Integrantes[auxID2].Nombre + " " + listaNegocios[auxIntegrante].Integrantes[auxID2].Apellidos);
+                                }
+
+                                Console.WriteLine("Ingrese el Id del integrante que desea eliminar");
+                                string respIdIntegranteEliminar = Convert.ToString(Console.ReadLine());;
+
+                                for(int auxID = 0; auxID < listaNegocios[auxIntegrante].Integrantes.Count; auxID++)
+                                {
+                                    if (listaNegocios[auxIntegrante].Integrantes[auxID].Id == respIdIntegranteEliminar)
+                                    {
+                                        listaNegocios[auxIntegrante].Integrantes.RemoveAt(auxID);
+                                        Console.ForegroundColor = ConsoleColor.Green;
+                                        Console.WriteLine("Se ha eliminado satisfactoriamente");
+                                        Console.ResetColor();
+                                        
+                                    }
+                                }
+                            }
+                            Console.ForegroundColor = ConsoleColor.Magenta;
+                            Console.WriteLine(separador);
+                            Console.ResetColor();
 
                         }
-                    }
-
-                    Console.ForegroundColor = ConsoleColor.Magenta;
-                    Console.WriteLine(separador);
-                    Console.ResetColor();
-
-                    /*Mostrar toda la información de la idea de negocio que impacte más departamentos
-                    y tenga el mayor total de ingresos en los primeros 3 años*/
-                    Console.WriteLine("Idea de negocio que mas departamentos y ingresos tiene");
-                    Console.WriteLine("Codigo del negocio: " + listaNegocios[indiceLista].Codigo);
-                    Console.WriteLine("Nombre de la idea de negocio: " + listaNegocios[indiceLista].NombreIdeaNegocio);
-                    Console.WriteLine("Impacto: " + listaNegocios[indiceLista].ImpactoSocial_Economico);
-                    Console.WriteLine("departamento/s: ");
-                    foreach (var indexNegocios in listaNegocios[indiceLista].NegocioDepartamentos)
-                    {
-                        Console.WriteLine("- " + indexNegocios);
-                    }
-                    Console.WriteLine("Valor inversion: " + listaNegocios[indiceLista].ValorInversion);
-                    Console.WriteLine("Total de ingresos a los primeros 3 años: " + listaNegocios[indiceLista].TotalIngresos_3Annos);
-                    foreach (var index4RI in listaNegocios[indiceLista].Lista4RI)
-                    {
-                        Console.WriteLine("Herramientas 4RI: " + index4RI);
-                    }
-                    
-                    Console.WriteLine("");
-                    
-                    // Mostrar el nombre de las 3 ideas de negocio que generen más rentabilidad
-                    Console.ForegroundColor = ConsoleColor.Magenta;
-                    Console.WriteLine(separador);
-                    Console.ResetColor();
-                    Console.WriteLine("Las 3 ideas de negocio con mas rentabilidad");
-                    
-                    string nombreRent1 = " ";
-                    string nombreRent2 = " ";
-                    string nombreRent3 = " ";
-                    double rent1 = listaNegocios[0].Rentabilidad;
-                    double rent2 = listaNegocios[0].Rentabilidad;
-                    double rent3 = listaNegocios[0].Rentabilidad;
-                    
-                 
-
-                    for (int indexRentabilidad = 0; indexRentabilidad < listaNegocios.Count; indexRentabilidad++)
-			        {
-                       
-                        if (listaNegocios[indexRentabilidad].Rentabilidad >= rent2 && listaNegocios[indexRentabilidad].Rentabilidad >= rent3)
+                        else if(respFinal == 2)
                         {
-                            
-                            rent1 = listaNegocios[indexRentabilidad].Rentabilidad;
-                            nombreRent1 = listaNegocios[indexRentabilidad].NombreIdeaNegocio;
-                            
-          
+                           
 
-                        }
-                        else if(listaNegocios[indexRentabilidad].Rentabilidad >= rent3)
+                            /*Mostrar toda la información de la idea de negocio que impacte más departamentos
+                            y tenga el mayor total de ingresos en los primeros 3 años*/
+
+                            int indiceLista = 0;
+
+                            for (int max = 0; max == listaNegocios.Count; max++)
+                            {
+                                if (listaNegocios[max].TotalIngresos_3Annos >= maxIngresos && listaNegocios[max].ContDep >= maxDepartamentos)
+                                {
+                                    maxIngresos = listaNegocios[max].TotalIngresos_3Annos;
+                                    maxDepartamentos = listaNegocios[max].ContDep;
+                                    indiceLista = max;
+
+                                }
+                            }
+
+                            Console.ForegroundColor = ConsoleColor.Magenta;
+                            Console.WriteLine(separador);
+                            Console.ResetColor();
+
+
+                            Console.WriteLine("Idea de negocio que mas departamentos y ingresos tiene");
+                            Console.WriteLine("Codigo del negocio: " + listaNegocios[indiceLista].Codigo);
+                            Console.WriteLine("Nombre de la idea de negocio: " + listaNegocios[indiceLista].NombreIdeaNegocio);
+                            Console.WriteLine("Impacto: " + listaNegocios[indiceLista].ImpactoSocial_Economico);
+                            Console.WriteLine("departamento/s: ");
+                            foreach (var indexNegocios in listaNegocios[indiceLista].NegocioDepartamentos)
+                            {
+                                Console.WriteLine("- " + indexNegocios);
+                            }
+                            Console.WriteLine("Valor inversion: " + listaNegocios[indiceLista].ValorInversion);
+                            Console.WriteLine("Total de ingresos a los primeros 3 años: " + listaNegocios[indiceLista].TotalIngresos_3Annos);
+                            foreach (var index4RI in listaNegocios[indiceLista].Lista4RI)
+                            {
+                                Console.WriteLine("Herramientas 4RI: " + index4RI);
+                            }
+
+                            Console.ForegroundColor = ConsoleColor.Magenta;
+                            Console.WriteLine(separador);
+                            Console.ResetColor();
+                        }else if(respFinal == 3)
                         {
-                            
-                            rent2 = listaNegocios[indexRentabilidad].Rentabilidad;
-                            nombreRent2 = listaNegocios[indexRentabilidad].NombreIdeaNegocio;
-                            
-                            
+                            Console.ForegroundColor = ConsoleColor.Magenta;
+                            Console.WriteLine(separador);
+                            Console.ResetColor();
+
+                            // Mostrar el nombre de las 3 ideas de negocio que generen más rentabilidad
+
+                            Console.WriteLine("Las 3 ideas de negocio con mas rentabilidad");
+
+                            string nombreRent1 = " ";
+                            string nombreRent2 = " ";
+                            string nombreRent3 = " ";
+                            double rent1 = listaNegocios[0].Rentabilidad;
+                            double rent2 = listaNegocios[0].Rentabilidad;
+                            double rent3 = listaNegocios[0].Rentabilidad;
+
+
+
+                            for (int indexRentabilidad = 0; indexRentabilidad < listaNegocios.Count; indexRentabilidad++)
+                            {
+
+                                if (listaNegocios[indexRentabilidad].Rentabilidad >= rent1 && listaNegocios[indexRentabilidad].Rentabilidad >= rent2)
+                                {
+
+                                    rent1 = listaNegocios[indexRentabilidad].Rentabilidad;
+                                    nombreRent1 = listaNegocios[indexRentabilidad].NombreIdeaNegocio;
+
+
+
+                                }
+                                else if (listaNegocios[indexRentabilidad].Rentabilidad >= rent2)
+                                {
+
+                                    rent2 = listaNegocios[indexRentabilidad].Rentabilidad;
+                                    nombreRent2 = listaNegocios[indexRentabilidad].NombreIdeaNegocio;
+
+
+                                }
+                                else
+                                {
+
+                                    rent3 = listaNegocios[indexRentabilidad].Rentabilidad;
+                                    nombreRent3 = listaNegocios[indexRentabilidad].NombreIdeaNegocio;
+                                }
+                            }
+
+                            Console.WriteLine("1ro: " + nombreRent1);
+                            Console.WriteLine("2do: " + nombreRent2);
+                            Console.WriteLine("3ro: " + nombreRent3);
+
+                            Console.ForegroundColor = ConsoleColor.Magenta;
+                            Console.WriteLine(separador);
+                            Console.ResetColor();
+
+                        }else if(respFinal == 4)
+                        {
+                            Console.ForegroundColor = ConsoleColor.Magenta;
+                            Console.WriteLine(separador);
+                            Console.ResetColor();
+
+                            //Nombre de los emprendimientos impacten más de 3 departamentos
+                            Console.WriteLine("Nombres de las ideas de negocio con mas de 3 departamentos");
+                            List<string> masDepartamentos = new List<string>();
+                            for (int indexDept = 0; indexDept < listaNegocios.Count; indexDept++)
+                            {
+                                if (listaNegocios[indexDept].ContDep > 3)
+                                {
+                                    masDepartamentos.Add(listaNegocios[indexDept].NombreIdeaNegocio);
+                                }
+                            }
+
+                            foreach (var indexMasDepartamentos in masDepartamentos)
+                            {
+                                Console.WriteLine("- " + indexMasDepartamentos);
+                            }
+
+
+                            Console.ForegroundColor = ConsoleColor.Magenta;
+                            Console.WriteLine(separador);
+                            Console.ResetColor();
+                        }else if(respFinal == 5)
+                        {
+                            Console.ForegroundColor = ConsoleColor.Magenta;
+                            Console.WriteLine(separador);
+                            Console.ResetColor();
+
+                            //Suma total de la inversión que se debe hacer en todas las ideas de negocio
+                            Console.WriteLine("La suma total de la inversión que se debe hacer en todas las ideas de negocio es: " + acumInversion);
+
+                            Console.ForegroundColor = ConsoleColor.Magenta;
+                            Console.WriteLine(separador);
+                            Console.ResetColor();
+                        }else if(respFinal == 6)
+                        {
+                            Console.ForegroundColor = ConsoleColor.Magenta;
+                            Console.WriteLine(separador);
+                            Console.ResetColor();
+
+                            //Suma total de ingresos de todas las ideas de negocio
+                            Console.WriteLine("La suma total de ingresos de todas las ideas de negocio es: " + acumIngresos);
+
+                            Console.ForegroundColor = ConsoleColor.Magenta;
+                            Console.WriteLine(separador);
+                            Console.ResetColor();
+                        }else if (respFinal == 7)
+                        {
+                            Console.ForegroundColor = ConsoleColor.Magenta;
+                            Console.WriteLine(separador);
+                            Console.ResetColor();
+
+                            //Nombre de la idea de negocio con los integrantes del equipo que tenga la mayor cantidad de herramientas 4RI en su emprendimiento
+                            int mayor = 0;
+                            int otroIndexAyuda = 0;
+
+                            for (int otroIndexMas = 0; otroIndexMas < listaNegocios.Count; otroIndexMas++)
+                            {
+                                if (listaNegocios[otroIndexMas].Lista4RI.Count > mayor)
+                                {
+                                    mayor = listaNegocios[otroIndexMas].Lista4RI.Count;
+                                    otroIndexAyuda = otroIndexMas;
+
+                                }
+
+                            }
+                            Console.WriteLine("El mayor emprendimiento con 4RI es: " + listaNegocios[otroIndexAyuda].NombreIdeaNegocio);
+                            Console.WriteLine("Sus integrantes son:");
+                            for (int quieroDormir = 0; quieroDormir < listaNegocios[otroIndexAyuda].Integrantes.Count; quieroDormir++)
+                            {
+                                Console.WriteLine("- " + listaNegocios[otroIndexAyuda].Integrantes[quieroDormir].Nombre + " " + listaNegocios[otroIndexAyuda].Integrantes[quieroDormir].Apellidos);
+                            }
+
+                            Console.ForegroundColor = ConsoleColor.Magenta;
+                            Console.WriteLine(separador);
+                            Console.ResetColor();
+
+                        }else if (respFinal == 8)
+                        {
+                            Console.ForegroundColor = ConsoleColor.Magenta;
+                            Console.WriteLine(separador);
+                            Console.ResetColor();
+
+                            //Cantidad de ideas de negocio que tienen Inteligencia Artificia
+
+                            Console.WriteLine("El total de ideas que utilizan inteligencia artificial es: " + contadorIA);
+
+                            Console.ForegroundColor = ConsoleColor.Magenta;
+                            Console.WriteLine(separador);
+                            Console.ResetColor();
                         }
                         else
                         {
-                            
-                            rent3 = listaNegocios[indexRentabilidad].Rentabilidad;
-                            nombreRent3 = listaNegocios[indexRentabilidad].NombreIdeaNegocio;
+                            Console.WriteLine("MUCHAS GRACIAS POR UTILIZAR NUESTRO PROGRAMA!!!!");
+                            Console.WriteLine("Integrantes: ");
+                            Console.WriteLine("- Alejandro Marin Heano ");
+                            Console.WriteLine("- Juan Pablo Aguirre ");
+                            auxFinal = true;
+                            ayuda();
+
                         }
-			        }
-
-                    Console.WriteLine("1ro: " + nombreRent1);
-                    Console.WriteLine("2do: " + nombreRent2);
-                    Console.WriteLine("3ro: " + nombreRent3);
-
-                    Console.ForegroundColor = ConsoleColor.Magenta;
-                    Console.WriteLine(separador);
-                    Console.ResetColor();
-
-                    //Nombre de los emprendimientos impacten más de 3 departamentos
-                    Console.WriteLine("Nombres de las ideas de negocio con mas de 3 departamentos");
-                    List<string> masDepartamentos = new List<string>();
-                    for(int indexDept = 0; indexDept < listaNegocios.Count; indexDept++)
-                    {
-                        if(listaNegocios[indexDept].ContDep > 3)
-                        {
-                            masDepartamentos.Add(listaNegocios[indexDept].NombreIdeaNegocio);
-                        }
-                    }
-
-                    foreach (var indexMasDepartamentos in masDepartamentos)
-                    {
-                        Console.WriteLine("- " + indexMasDepartamentos);
-                    }
 
 
-                    Console.ForegroundColor = ConsoleColor.Magenta;
-                    Console.WriteLine(separador);
-                    Console.ResetColor();
-
-                    
-                    //Suma total de la inversión que se debe hacer en todas las ideas de negocio
-                    Console.WriteLine("La suma total de la inversión que se debe hacer en todas las ideas de negocio es: " + acumInversion);
-
-                    Console.ForegroundColor = ConsoleColor.Magenta;
-                    Console.WriteLine(separador);
-                    Console.ResetColor();
-
-                    //Suma total de ingresos de todas las ideas de negocio
-                    Console.WriteLine("La suma total de ingresos de todas las ideas de negocio es: " + acumIngresos);
-
-                    Console.ForegroundColor = ConsoleColor.Magenta;
-                    Console.WriteLine(separador);
-                    Console.ResetColor();
-
-                    //Nombre de la idea de negocio con los integrantes del equipo que tenga la mayor cantidad de herramientas 4RI en su emprendimiento
-                    int mayor = 0;
-                    int otroIndexAyuda = 0;
-
-                    for(int otroIndexMas = 0; otroIndexMas < listaNegocios.Count;otroIndexMas++)
-                    {
-                        if(listaNegocios[otroIndexMas].Lista4RI.Count > mayor)
-                        {
-                            mayor = listaNegocios[otroIndexMas].Lista4RI.Count;
-                            otroIndexAyuda = otroIndexMas;
-                                
-                        }
-                        
-                    }
-                    Console.WriteLine("El mayor emprendimiento con 4RI es: " + listaNegocios[otroIndexAyuda].NombreIdeaNegocio);
-                    Console.WriteLine("Sus integrantes son:" );
-                    for(int quieroDormir = 0;quieroDormir < listaNegocios[otroIndexAyuda].Integrantes.Count; quieroDormir++)
-                    {
-                        Console.WriteLine("- " + listaNegocios[otroIndexAyuda].Integrantes[quieroDormir].Nombre +" "+listaNegocios[otroIndexAyuda].Integrantes[quieroDormir].Apellidos);
-                    }
-
-                    Console.ForegroundColor = ConsoleColor.Magenta;
-                    Console.WriteLine(separador);
-                    Console.ResetColor();
-
-                    //Cantidad de ideas de negocio que tienen Inteligencia Artificia
-                    Console.WriteLine("El total de ideas que utilizan inteligencia artificial es: " + contadorIA);
-
-
-                    ayuda();
+                    } while(auxFinal is false);
                     
                 }
                 else
