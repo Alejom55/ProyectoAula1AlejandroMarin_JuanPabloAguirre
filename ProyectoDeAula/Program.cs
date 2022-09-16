@@ -10,7 +10,7 @@
             static void Main(string[] args)
             {
                 List<int> listaCodigoNegocios = new List<int>();
-                List<IntegrantesNegocio> listaIntegrantesNegocios = new List<IntegrantesNegocio>();
+                
                 List<Negocios> listaNegocios = new List<Negocios>();
             
                 List<string> departamentos = new List<string>
@@ -311,8 +311,9 @@
                             Console.WriteLine(" ");
                             int respCantidadIntegrantes = Convert.ToInt32(Console.ReadLine());
                             Console.WriteLine(" ");
-
-                            for(int cantIntegrantes = 1; cantIntegrantes <= respCantidadIntegrantes; cantIntegrantes++)
+                        // aqui
+                        List<IntegrantesNegocio> listaIntegrantesNegocios = new List<IntegrantesNegocio>();
+                        for (int cantIntegrantes = 1; cantIntegrantes <= respCantidadIntegrantes; cantIntegrantes++)
                             {
                                 Console.WriteLine(" ");
                                 Console.WriteLine("Ingrese el id del integrate #" + cantIntegrantes);
@@ -663,34 +664,31 @@
                                 Console.ResetColor();
 
                                 //Nombre de la idea de negocio con los integrantes del equipo que tenga la mayor cantidad de herramientas 4RI en su emprendimiento
-                                List<Negocios> mayores4RI = new List<Negocios>();
-                                int mayor = 0;
+
+                                int mayor = listaNegocios[0].Lista4RI.Count;
                                 int otroIndexAyuda = 0;
 
                                 for (int otroIndexMas = 0; otroIndexMas < listaNegocios.Count; otroIndexMas++)
                                 {
-                                    if (listaNegocios[otroIndexMas].Lista4RI.Count >= 4) { }
+                                    if (listaNegocios[otroIndexMas].Lista4RI.Count >= mayor)
                                     {   
 
                                         mayor = listaNegocios[otroIndexMas].Lista4RI.Count;
                                         otroIndexAyuda = otroIndexMas;
-                                        mayores4RI.Add(listaNegocios[otroIndexMas]);
-                                        
-
-
-
                                     }
 
                                 }
                                 Console.WriteLine("Los mayores negocios con herramientas 4RI son: ");
-                                for (int quieroDormir = 0; quieroDormir < listaNegocios.Count; quieroDormir++)
+                                
+                                Console.WriteLine("Nombre negocio: " + listaNegocios[otroIndexAyuda].NombreIdeaNegocio);
+
+                                Console.WriteLine("Cantidad: " + listaNegocios[otroIndexAyuda].Lista4RI.Count);
+                                
+                                for (int indexIntegrantes = 0; indexIntegrantes < listaNegocios[otroIndexAyuda].Integrantes.Count; indexIntegrantes++)
                                 {
-                                    Console.WriteLine("Nombre negocio: " + listaNegocios[quieroDormir].NombreIdeaNegocio);
-                                    for (int indexIntegrantes = 0; indexIntegrantes < mayores4RI[quieroDormir].Integrantes.Count; indexIntegrantes++)
-                                    {
-                                        Console.WriteLine("- " + mayores4RI[quieroDormir].Integrantes[indexIntegrantes].Nombre + " " + mayores4RI[quieroDormir].Integrantes[indexIntegrantes].Apellidos);
-                                    }
+                                    Console.WriteLine("-Nombre: " + listaNegocios[otroIndexAyuda].Integrantes[indexIntegrantes].Nombre + " " + listaNegocios[otroIndexAyuda].Integrantes[indexIntegrantes].Apellidos);
                                 }
+                                
                                 Console.ForegroundColor = ConsoleColor.Magenta;
                                 Console.WriteLine(separador);
                                 Console.ResetColor();
