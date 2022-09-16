@@ -568,7 +568,6 @@ namespace repeat_string_x_times
                             string nombreRent3 = " ";
                             double rent1 = listaNegocios[0].Rentabilidad;
                             double rent2 = listaNegocios[0].Rentabilidad;
-                            double rent3 = listaNegocios[0].Rentabilidad;
 
 
 
@@ -595,7 +594,6 @@ namespace repeat_string_x_times
                                 else
                                 {
 
-                                    rent3 = listaNegocios[indexRentabilidad].Rentabilidad;
                                     nombreRent3 = listaNegocios[indexRentabilidad].NombreIdeaNegocio;
                                 }
                             }
